@@ -1,0 +1,14 @@
+default:
+    extensions:
+        Behat\Symfony2Extension: ~
+        Behat\MinkExtension:
+            javascript_session: selenium2
+            default_session: selenium2
+            base_url: http://demo-nginx/
+            show_cmd: "open %s"
+            browser_name: chrome
+            selenium2:
+                wd_host: http://demo-selenium:4444/wd/hub
+                capabilities:
+                  browser: chrome
+        Cjm\Behat\StepThroughExtension: ~

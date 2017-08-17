@@ -1,0 +1,27 @@
+version: "3"
+services:
+
+  demo-nginx:
+    build:
+      context: ./Docker/nginx
+    volumes:
+      - ".:/var/www/html:delegated,ro"
+    ports:
+      - ${DOCKER_COMPOSE_DEMO_PORT}:80
+    environment:
+      APACHE_DOCROOT: /var/www/html/web
+
+  demo-fpm:
+    build:
+      context: ./Docker/fpm
+    volumes:
+      - ".:/var/www/html:delegated"
+    environment:
+      APACHE_DOCROOT: /var/www/html/web
+
+  demo-db:
+    image: mysql:5.7.19
+    volumes:
+      - "./Docker/data/mysql:/var/lib/mysql:delegated"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}

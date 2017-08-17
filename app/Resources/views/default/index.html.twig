@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo App</title>
+</head>
+<body>
+<h1>Guestbook Messages</h1>
+{% for entry in entries %}
+    <p>
+        By: <strong>{{ entry.name }}</strong> on {{ entry.date|date }}<br>
+        {{ entry.text }}
+    </p>
+{% endfor %}
+{{ form_start(newEntryForm) }}
+{{ form_widget(newEntryForm) }}
+{{ form_end(newEntryForm) }}
+</body>
+</html>
