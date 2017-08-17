@@ -25,9 +25,11 @@ When asked to provide parameters, pressing enter to leave the defaults should be
 
 Running Tests
 -------------
-1) Start a new console session inside the application's container (if not already done):  
+1) Make sure the selenium services are started. You'll have to run docker-compose like this:
+`docker-compose -f docker-compose.yml -f Docker/docker-compose-selenium.yml up`
+2) Start a new console session inside the application's container (if not already done):  
 `docker exec -it dockercomposedemo_demo-fpm_1 bash`
-2) Run: `bin/behat`
+3) Run: `bin/behat`
 
 If you want to see the test browser window, use a VNC client to connect to:
 Host: localhost  
